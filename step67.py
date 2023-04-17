@@ -53,3 +53,43 @@
 #
 # if __name__ == "__main__":
 #     compute()
+
+# import os
+# print(os.getcwd())
+#
+#
+# def write_data():
+#     with open('README.md', 'a') as f:
+#         user_input = input('Add something to the file: \n')
+#         f.write(user_input)
+#         f.close()
+#
+#
+# def open_file():
+#     with open('README.md', 'r') as f:
+#         data = f.read()
+#         print(data)
+#         f.close()
+#
+#
+# def choose_r_or_w(some_string):
+#     if some_string == 'read':
+#         open_file()
+#     elif some_string == 'write':
+#         write_data()
+#     else:
+#         print('Try running the program again.')
+#         exit()
+#
+#
+# answer = input('Would you like to "read" or "write"?:')
+# choose_r_or_w(answer)
+
+import os
+
+file_name = 'Hello.txt'
+file_path = 'C:'
+
+ab_path = os.path.join(file_path, file_name)
+
+print(ab_path)
