@@ -21,8 +21,8 @@ import sqlite3
 #                 ('Bob', 'Smith', 'bsmith@gmail.com'))
 #     cur.execute("INSERT INTO tbl_persons(col_fname, col_lname, col_email) VALUES (?, ?, ?)",
 #                 ('Sara', 'Jones', 'sjones@gmail.com'))
-    cur.execute("INSERT INTO tbl_persons(col_fname, col_lname, col_email) VALUES (?, ?, ?)",
-                ('Kevin', 'Bacon', 'kbacon@gmail.com'))
+#     cur.execute("INSERT INTO tbl_persons(col_fname, col_lname, col_email) VALUES (?, ?, ?)",
+#                 ('Kevin', 'Bacon', 'kbacon@gmail.com'))
 #     conn.commit()
 # conn.close()
 
