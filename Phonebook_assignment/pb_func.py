@@ -37,7 +37,7 @@ def ask_quit(self):
         os._exit(0)
 
 
-#===========
+# ===========
 def create_db(self):
     conn = sqlite3.connect('db_phonebook.db')
     with conn:
