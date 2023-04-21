@@ -6,6 +6,7 @@ import shutil
 import datetime
 
 
+
 class ParentWindow(Frame):
     def __init__(self, master):
         Frame.__init__(self)
@@ -29,29 +30,6 @@ class ParentWindow(Frame):
         self.exit_btn = Button(text="Exit", width=20, command=self.exit_program)
         self.exit_btn.grid(row=2, column=2, padx=(10, 40), pady=(0, 15))
 
-        hour_check = 14
-        now = datetime.datetime.now()
-        temp_file = 'temp.txt'
-        with open(temp_file, 'w'):
-            pass
-        current_m_time = os.path.getmtime(temp_file)
-        os.remove(temp_file)
-
-
-        if now.hour == hour_check:
-            source = 'C:\\Users\\benja\\Desktop\\CustomerSource'
-            destination = 'C:\\Users\\benja\\Desktop\\CustomerDestination'
-            source_files = os.listdir(source)
-            for i in range(0, len(source_files)):
-                file_name = source_files[i]
-                ab_path = os.path.join(source, file_name)
-                mod_time = os.path.getmtime(ab_path)
-                lt24 = int(current_m_time) - int(mod_time)
-                print(lt24)
-                if lt24 < 86000:
-                    for x in source_files:
-                        shutil.move(source + '\\' + x, destination)
-                        print(x + ' was successfully transferred.')
 
     def sourceDir(self):
         selectSourceDir = tkinter.filedialog.askdirectory()
@@ -73,18 +51,6 @@ class ParentWindow(Frame):
 
     def exit_program(self):
         root.destroy()
-
-    # def checktime(self):
-    #     hour_check = 17
-    #     now = datetime.datetime.now()
-    #     if now.hour == hour_check:
-    #         source = 'C:\\Users\\benja\\Desktop\\CustomerSource'
-    #         destination = 'C:\\Users\\benja\\Desktop\\CustomerDestination'
-    #         source_files = os.listdir(source)
-    #         for i in source_files:
-    #             shutil.move(source + '\\' + i, destination)
-    #             print(i + ' was successfully transferred.')
-
 
 
 if __name__ == "__main__":
