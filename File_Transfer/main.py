@@ -4,7 +4,7 @@ import tkinter.filedialog
 import os
 import shutil
 import datetime
-
+import time
 
 
 class ParentWindow(Frame):
@@ -42,12 +42,18 @@ class ParentWindow(Frame):
         self.destination_dir.insert(0, selectDestDir)
 
     def transferFiles(self):
+        # Get the current time
+        current_time = time.time()
+        # Define the threshold for "recently modified" (24 hours in seconds)
+        recently_modified_threshold = 24 * 60 * 60
+
         source = self.source_dir.get()
         destination = self.destination_dir.get()
-        source_files = os.listdir(source)
-        for i in source_files:
-            shutil.move(source + '/' + i, destination)
-            print(i + ' was successfully transferred')
+        for source_files in os.listdir(source):
+            file_path = os.path.join(source + '/', source_files)
+            if os.path.isfile(file_path) and (current_time - os.path.getmtime(file_path)) < recently_modified_threshold:
+                shutil.move(source + '/' + source_files, destination)
+                print(source_files + ' was successfully transferred')
 
     def exit_program(self):
         root.destroy()
